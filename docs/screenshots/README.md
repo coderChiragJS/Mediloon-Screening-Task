@@ -13,7 +13,7 @@ README already links to them, so they will render once added.
 | `03-status-complete.png` | Session status | All four steps complete, just before auto-advance |
 | `04-review.png` | Prescription review | Masked reference, medication, patient ref, pharmacy, demo banner, Submit CTA |
 | `05-confirmation.png` | Order confirmation | Success check, order ref, "What happens next" steps |
-| `06-error.png` | Any | An error state (trigger via long-press the Mediloon logo on Start → arm a fault) |
+| `06-error.png` | Any | An error state (trigger by tapping Cancel on the Session status screen → renders the "Request cancelled" state) |
 
 ## How to capture (iOS simulator)
 
@@ -30,6 +30,15 @@ README already links to them, so they will render once added.
 
 ## Tip for the error screenshot
 
-On the Start screen, long-press the Mediloon "M" logo (700ms). A developer
-sheet opens with buttons for each error code. Tap one, then press
-"Start Prescription Flow" — the matching error screen renders.
+The simplest live error to capture is `USER_CANCELLED`: on the Session
+status screen, tap **Cancel** — the slice flips `status` to `'failed'`
+with code `USER_CANCELLED`, and `ErrorView` renders the user-friendly
+"Request cancelled" card.
+
+All other error codes (`SERVICE_UNAVAILABLE`, `SESSION_EXPIRED`,
+`NETWORK_FAILED`, `PRESCRIPTION_MISSING`, `SDK_UNAVAILABLE`) are
+implemented in [src/utils/errors.ts](../../src/utils/errors.ts) and
+rendered by the same [ErrorView](../../src/components/ErrorView.tsx) —
+they trigger automatically if the corresponding `GatewayError` is
+thrown by a real backend. Walk the interviewer through the code if
+they ask to see the others.

@@ -129,7 +129,7 @@ See [`src/services/prescriptionGateway/README.md`](./src/services/prescriptionGa
 | # | Screen | What happens |
 |---|---|---|
 | 1 | **Start** | Logo, process explainer, trust badge, "Start Prescription Flow" CTA. Dispatches `startSession` and navigates to Status. |
-| 2 | **Session status** | Vertical 4-step `ProgressIndicator` advances as the mock state machine polls. Auto-advances to Review when `ready_to_submit`. Cancel or "Skip wait" (dev) available. |
+| 2 | **Session status** | Vertical 4-step `ProgressIndicator` advances as the mock state machine polls. Auto-advances to Review when `ready_to_submit`. **Complete Session** (manual advance) and **Cancel** secondary actions available. |
 | 3 | **Review** | Masked prescription reference, medication, patient reference, pharmacy. Demo-data banner. "Submit Order Request" CTA. |
 | 4 | **Confirmation** | Success check, masked order ID, "what happens next" steps, "Start a new request" CTA. |
 
@@ -161,13 +161,6 @@ the right copy + recovery action.
 | `PRESCRIPTION_MISSING` | No prescription found | Start over / Contact pharmacy |
 | `SDK_UNAVAILABLE` | This device isn't supported yet | Close |
 | `USER_CANCELLED` | Request cancelled | Start a new request |
-
-### Triggering errors on demand (live demo)
-
-Long-press the Mediloon logo on the Start screen. A developer bottom
-sheet opens (gated behind `__DEV__`) that arms the next gateway call to
-throw a specific `GatewayError`. This guarantees the error UI can be
-shown reliably during the interview without waiting on randomness.
 
 ---
 

@@ -1,4 +1,3 @@
-import { ErrorCode } from '../../utils/errors';
 import { log } from '../../utils/logger';
 import {
   GatewayError,
@@ -25,24 +24,6 @@ const randomDelay = () =>
   wait(NETWORK_DELAY_MS.min + Math.random() * (NETWORK_DELAY_MS.max - NETWORK_DELAY_MS.min));
 
 const sessions = new Map<string, PrescriptionSession>();
-
-let nextFault: ErrorCode | null = null;
-
-/**
- * Dev-only hook used by the hidden debug menu in StartScreen to force the
- * next gateway call to fail with a specific error code. No effect in prod
- * (the menu that calls it is gated behind `__DEV__`).
- */
-export function __setNextFault(code: ErrorCode | null) {
-  nextFault = code;
-  log.info('mockGateway: nextFault armed', { code: code ?? 'none' });
-}
-
-function consumeFault(): ErrorCode | null {
-  const fault = nextFault;
-  nextFault = null;
-  return fault;
-}
 
 function generateSessionId(): string {
   return `sess_${Math.random().toString(36).slice(2, 10)}${Date.now().toString(36)}`;
@@ -71,8 +52,6 @@ function fillPrescriptionData(session: PrescriptionSession): PrescriptionSession
 export const mockGateway: PrescriptionGateway = {
   async startPrescriptionSession() {
     await randomDelay();
-    const fault = consumeFault();
-    if (fault) throw new GatewayError(fault);
 
     const session: PrescriptionSession = {
       sessionId: generateSessionId(),
@@ -85,8 +64,6 @@ export const mockGateway: PrescriptionGateway = {
 
   async checkSessionStatus(sessionId: string) {
     await randomDelay();
-    const fault = consumeFault();
-    if (fault) throw new GatewayError(fault);
 
     const current = sessions.get(sessionId);
     if (!current) throw new GatewayError('SESSION_EXPIRED');
@@ -116,8 +93,6 @@ export const mockGateway: PrescriptionGateway = {
 
   async completeMockPrescriptionSession(sessionId: string) {
     await randomDelay();
-    const fault = consumeFault();
-    if (fault) throw new GatewayError(fault);
 
     const current = sessions.get(sessionId);
     if (!current) throw new GatewayError('SESSION_EXPIRED');
@@ -133,8 +108,6 @@ export const mockGateway: PrescriptionGateway = {
 
   async submitOrder(sessionId: string): Promise<OrderResult> {
     await randomDelay();
-    const fault = consumeFault();
-    if (fault) throw new GatewayError(fault);
 
     const current = sessions.get(sessionId);
     if (!current) throw new GatewayError('SESSION_EXPIRED');

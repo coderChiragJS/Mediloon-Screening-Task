@@ -7,10 +7,9 @@
  * No other file in the app needs to change — screens, store, and thunks all
  * depend on the `PrescriptionGateway` interface, not on the mock.
  */
-import { mockGateway, __setNextFault } from './mockGateway';
+import { mockGateway } from './mockGateway';
 import { PrescriptionGateway } from './types';
 
 export const gateway: PrescriptionGateway = mockGateway;
 
-export { __setNextFault };
 export * from './types';

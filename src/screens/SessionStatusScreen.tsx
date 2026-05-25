@@ -134,11 +134,11 @@ export function SessionStatusScreen({ navigation }: ScreenProps<'SessionStatus'>
         )}
 
         <View style={{ marginTop: theme.spacing.xl, gap: theme.spacing.sm }}>
-          {__DEV__ && status !== 'failed' && status !== 'ready_to_submit' && (
+          {status !== 'failed' && status !== 'ready_to_submit' && (
             <SecondaryButton
-              title="Skip wait (dev: complete now)"
+              title="Complete Session"
               onPress={handleComplete}
-              accessibilityHint="Developer shortcut to immediately complete the mock session"
+              accessibilityHint="Completes the prescription session immediately"
             />
           )}
           {status !== 'failed' && (
