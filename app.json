@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "mediloon-prescription-app",
+    "name": "Mediloon",
     "slug": "mediloon-prescription-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true
     },
