@@ -133,8 +133,17 @@ See [`src/services/prescriptionGateway/README.md`](./src/services/prescriptionGa
 | 3 | **Review** | Masked prescription reference, medication, patient reference, pharmacy. Demo-data banner. "Submit Order Request" CTA. |
 | 4 | **Confirmation** | Success check, masked order ID, "what happens next" steps, "Start a new request" CTA. |
 
-Screenshots: see [`docs/screenshots/`](./docs/screenshots/) (or attached
-recording, depending on submission format).
+Screenshots live in [`docs/screenshots/`](./docs/screenshots/) — see that
+folder's README for the filename / capture checklist:
+
+| Screen | File |
+|---|---|
+| Start | [`01-start.png`](./docs/screenshots/01-start.png) |
+| Session status (in progress) | [`02-status-progress.png`](./docs/screenshots/02-status-progress.png) |
+| Session status (all steps complete) | [`03-status-complete.png`](./docs/screenshots/03-status-complete.png) |
+| Prescription review | [`04-review.png`](./docs/screenshots/04-review.png) |
+| Order confirmation | [`05-confirmation.png`](./docs/screenshots/05-confirmation.png) |
+| Error state | [`06-error.png`](./docs/screenshots/06-error.png) |
 
 ---
 

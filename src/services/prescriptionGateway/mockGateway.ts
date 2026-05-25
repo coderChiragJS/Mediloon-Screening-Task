@@ -62,7 +62,7 @@ function fillPrescriptionData(session: PrescriptionSession): PrescriptionSession
     ...session,
     prescriptionReference: session.prescriptionReference ?? generatePrescriptionRef(),
     patientReference: session.patientReference ?? `PAT-${Math.floor(Math.random() * 900 + 100)}`,
-    medicationName: session.medicationName ?? 'Mediloon Sample Medication 50mg',
+    medicationName: session.medicationName ?? 'Mock Medication',
     pharmacyId: session.pharmacyId ?? 'pharmacy_demo_001',
     pharmacyName: session.pharmacyName ?? 'Mediloon Demo Pharmacy',
   };

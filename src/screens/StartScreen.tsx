@@ -91,7 +91,7 @@ export function StartScreen({ navigation }: ScreenProps<'Start'>) {
             ]}
           >
             Start your prescription request securely. Your prescription data will be retrieved
-            from your provider and sent to the pharmacy for review.
+            and sent to the pharmacy for review.
           </Text>
         </View>
 

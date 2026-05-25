@@ -1,5 +1,11 @@
 import { ErrorCode } from '../../utils/errors';
 
+// The Session Status Screen in the brief lists four required statuses
+// (Session created → Waiting for external authorization → Prescription
+// received → Ready to submit order). The brief's sample response shows
+// a single illustrative `"status": "completed"` — that maps to our
+// terminal pre-submission state `ready_to_submit`. We keep the granular
+// state machine because the screen itself requires all four labels.
 export type SessionStatus =
   | 'idle'
   | 'session_created'
