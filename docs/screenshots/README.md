@@ -10,10 +10,8 @@ README already links to them, so they will render once added.
 |---|---|---|
 | `01-start.png` | Start | Logo, "Request a prescription", how-it-works card, trust badge, CTA |
 | `02-status-progress.png` | Session status | Vertical progress with one step active (e.g. "Waiting for external authorization") |
-| `03-status-complete.png` | Session status | All four steps complete, just before auto-advance |
-| `04-review.png` | Prescription review | Masked reference, medication, patient ref, pharmacy, demo banner, Submit CTA |
-| `05-confirmation.png` | Order confirmation | Success check, order ref, "What happens next" steps |
-| `06-error.png` | Any | An error state (trigger by tapping Cancel on the Session status screen → renders the "Request cancelled" state) |
+| `03-review.png` | Prescription review | Masked reference, medication, patient ref, pharmacy, demo banner, Submit CTA |
+| `04-confirmation.png` | Order confirmation | Success check, order ref, "What happens next" steps |
 
 ## How to capture (iOS simulator)
 

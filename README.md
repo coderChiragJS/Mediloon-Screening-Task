@@ -140,10 +140,8 @@ folder's README for the filename / capture checklist:
 |---|---|
 | Start | [`01-start.png`](./docs/screenshots/01-start.png) |
 | Session status (in progress) | [`02-status-progress.png`](./docs/screenshots/02-status-progress.png) |
-| Session status (all steps complete) | [`03-status-complete.png`](./docs/screenshots/03-status-complete.png) |
-| Prescription review | [`04-review.png`](./docs/screenshots/04-review.png) |
-| Order confirmation | [`05-confirmation.png`](./docs/screenshots/05-confirmation.png) |
-| Error state | [`06-error.png`](./docs/screenshots/06-error.png) |
+| Prescription review | [`03-review.png`](./docs/screenshots/03-review.png) |
+| Order confirmation | [`04-confirmation.png`](./docs/screenshots/04-confirmation.png) |
 
 ---
 
